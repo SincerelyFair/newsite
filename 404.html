@@ -1,3 +1,95 @@
-<script>
-    window.location.href = "/";
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            color: white;
+        }
+
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .error-code {
+            font-size: 3.33vw;
+            font-weight: bold;
+            color: #d400ff;
+            margin-bottom: 5px;
+        }
+
+        .error-message {
+            font-size: 1.67vw;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .home-link {
+            font-size: 1.33vw;
+            color: cyan;
+            text-decoration: none;
+        }
+
+        .img-404 {
+            width: 8.33vw;
+            height: auto;
+            margin-right: 3px;
+        }
+
+        .countdown {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <img src="assets/404.png" alt="img" class="img-404">
+        <div class="error-code">404</div>
+        <div class="error-message">Page not found</div>
+        <p>Are you lost?</p>
+        <a href="https://losingti.me" class="home-link">Go to homepage</a>
+    </div>
+    <div class="countdown" id="countdown">Redirecting in...</div>
+    <script>
+        function redirect() {
+            window.location.href = "hhttps://losingti.me";
+        }
+        function countdown() {
+            const countdownElement = document.getElementById("countdown");
+            let seconds = 5;
+
+            function updateCountdown() {
+                countdownElement.innerText = `Redirecting in... ${seconds}`;
+                seconds--;
+
+                if (seconds < 0) {
+                    redirect();
+                } else {
+                    setTimeout(updateCountdown, 1000);
+                }
+            }
+            updateCountdown();
+        }
+        countdown();
+    </script>
+</body>
+
+</html>
