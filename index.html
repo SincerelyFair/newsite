@@ -43,13 +43,23 @@
 <div class="background">
 <div id="pattern"></div>
 <video id="background" loop>
-<source src="assets/xml.mp4" type="video/mp4">
-<script>
-          var video = document.getElementById("background");
-          
-          app.videoElement = video;
-          app.videoElement.volume = 0;
-        </script>
+  <source src="" type="video/mp4">
+  <script>
+            var tracks = [
+              'assets/tracks/jumbotronshitpoppin.mp4',
+              'assets/tracks/lowlife.mp4'
+            ];
+  
+            function getRandomTrack() {
+              return tracks[Math.floor(Math.random() * tracks.length)];
+            }
+  
+            var video = document.getElementById("background");
+            video.src = getRandomTrack();
+            
+            app.videoElement = video;
+            app.videoElement.volume = 0;
+          </script>
 </video>
 </div>
 <div>
